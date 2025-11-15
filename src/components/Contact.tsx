@@ -115,11 +115,11 @@ ${formData.fullName}`);
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <div>
-            <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+            <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Send Us a Message</h3>
 
               {/* Form Fields */}
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <div>
                   <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
                     Full Name *
@@ -130,7 +130,7 @@ ${formData.fullName}`);
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm sm:text-base ${
                       errors.fullName ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="John Doe"
@@ -150,7 +150,7 @@ ${formData.fullName}`);
                     name="businessName"
                     value={formData.businessName}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm sm:text-base ${
                       errors.businessName ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Your Business LLC"
@@ -170,7 +170,7 @@ ${formData.fullName}`);
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm sm:text-base ${
                       errors.email ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="john@business.com"
@@ -189,8 +189,8 @@ ${formData.fullName}`);
                     name="projectDescription"
                     value={formData.projectDescription}
                     onChange={handleInputChange}
-                    rows={5}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none ${
+                    rows={4 sm:rows={5}
+                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none text-sm sm:text-base ${
                       errors.projectDescription ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Tell us about your website project, your business, and what you're looking for..."
@@ -205,7 +205,7 @@ ${formData.fullName}`);
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full mt-8 py-3 px-6 rounded-lg font-semibold transition-all duration-200 ${
+                className={`w-full mt-6 sm:mt-8 py-3 px-6 rounded-lg font-semibold transition-all duration-200 text-sm sm:text-base ${
                   isSubmitting
                     ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
                     : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl'
