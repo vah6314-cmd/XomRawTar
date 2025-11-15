@@ -191,8 +191,8 @@ export default function Services() {
           <div className="text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Need a Custom Solution?</h3>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Every business is unique. If our packages don't perfectly fit your needs,
-              let's discuss a custom solution tailored specifically for your business goals.
+              Every business is unique. If our packages don&apos;t perfectly fit your needs,
+              let&apos;s discuss a custom solution tailored specifically for your business goals.
             </p>
             <button
               onClick={() => scrollToContact('custom')}
