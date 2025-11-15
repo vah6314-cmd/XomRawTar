@@ -1,0 +1,10 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  <rect x="50" y="50" width="300" height="200" fill="#e9ecef" rx="8"/>
+  <rect x="70" y="70" width="260" height="30" fill="#dee2e6" rx="4"/>
+  <rect x="70" y="110" width="180" height="20" fill="#dee2e6" rx="4"/>
+  <rect x="70" y="140" width="200" height="20" fill="#dee2e6" rx="4"/>
+  <rect x="70" y="170" width="160" height="20" fill="#dee2e6" rx="4"/>
+  <circle cx="300" cy="180" r="20" fill="#2563eb"/>
+  <text x="200" y="250" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="14">E-commerce Website 1</text>
+</svg>
