@@ -91,7 +91,7 @@ Project Description: ${formData.projectDescription}
         setIsSubmitting(false);
       }, 1000);
 
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
       setIsSubmitting(false);
     }
