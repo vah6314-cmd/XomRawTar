@@ -217,7 +217,7 @@ Project Description: ${formData.projectDescription}
               {submitStatus === 'success' && (
                 <div className="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
                   <p className="font-semibold">Message sent successfully!</p>
-                  <p className="text-sm">We'll get back to you within 24 hours.</p>
+                  <p className="text-sm">We&apos;ll get back to you within 24 hours.</p>
                 </div>
               )}
 
