@@ -107,7 +107,7 @@ Project Description: ${formData.projectDescription}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Get Started Today</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to grow your business with a professional website? Let's discuss your project.
+            Ready to grow your business with a professional website? Let&apos;s discuss your project.
           </p>
         </div>
 
