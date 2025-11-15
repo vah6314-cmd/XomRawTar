@@ -195,7 +195,7 @@ export default function Services() {
               let&apos;s discuss a custom solution tailored specifically for your business goals.
             </p>
             <button
-              onClick={() => scrollToContact('custom')}
+              onClick={() => scrollToContact()}
               className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors duration-200"
             >
               Discuss Custom Project
