@@ -79,7 +79,7 @@ Business Name: ${formData.businessName}
 Email: ${formData.email}
 Project Description: ${formData.projectDescription}
 
-I'm interested in your web design services and would appreciate more information about getting started.
+I&apos;m interested in your web design services and would appreciate more information about getting started.
 
 Thank you!
 ${formData.fullName}`);
