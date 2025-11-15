@@ -3,11 +3,7 @@
 import { useEffect, useState } from 'react';
 
 export default function Hero() {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
+  const [isLoaded, setIsLoaded] = useState(true);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
