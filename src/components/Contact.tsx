@@ -56,7 +56,7 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validateForm()) {
@@ -67,29 +67,30 @@ export default function Contact() {
     setSubmitStatus('idle');
 
     try {
-      // For now, we'll use a simple email mailto approach
-      // In production, you'd want to use a service like Formspree, EmailJS, or a serverless function
-      const subject = encodeURIComponent('New Website Project Request');
-      const body = encodeURIComponent(`
+      // Create mailto link for GitHub Pages deployment (no backend)
+      const subject = encodeURIComponent('New Website Project Request from Rayline Web Development');
+      const body = encodeURIComponent(`Hello Rayline Web Development Team,
+
+I would like to inquire about a website project with the following details:
+
 Full Name: ${formData.fullName}
 Business Name: ${formData.businessName}
 Email: ${formData.email}
 Project Description: ${formData.projectDescription}
-      `);
 
+I'm interested in your web design services and would appreciate more information about getting started.
+
+Thank you!
+${formData.fullName}`);
+
+      // Open email client with pre-filled information
       window.location.href = `mailto:raylinewebdev@gmail.com?subject=${subject}&body=${body}`;
 
-      // Simulate submission success
+      // Show success message after a delay
       setTimeout(() => {
         setSubmitStatus('success');
-        setFormData({
-          fullName: '',
-          businessName: '',
-          email: '',
-          projectDescription: ''
-        });
         setIsSubmitting(false);
-      }, 1000);
+      }, 500);
 
     } catch {
       setSubmitStatus('error');
