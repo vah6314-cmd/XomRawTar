@@ -154,22 +154,22 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Portfolio</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Portfolio</h2>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Explore our diverse portfolio of websites designed for small businesses across various industries
           </p>
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 mb-8 sm:mb-12 px-2">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
+              className={`px-3 sm:px-4 lg:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 ${
                 selectedCategory === category
                   ? 'bg-blue-600 text-white'
                   : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
@@ -181,35 +181,35 @@ export default function Portfolio() {
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 transition-transform"
+              className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               {/* Placeholder for portfolio image */}
-              <div className="h-48 bg-gray-200 rounded-t-lg flex items-center justify-center">
-                <div className="text-gray-400 text-center">
-                  <svg className="w-16 h-16 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              <div className="h-32 sm:h-40 lg:h-48 bg-gray-200 rounded-t-lg flex items-center justify-center">
+                <div className="text-gray-400 text-center px-2">
+                  <svg className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <p className="text-sm">{item.category} Website</p>
+                  <p className="text-xs sm:text-sm">{item.category} Website</p>
                 </div>
               </div>
 
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">
+                  <span className="inline-block px-2 sm:px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">
                     {item.category}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600 mb-4">{item.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-4">{item.description}</p>
 
                 <button
                   onClick={() => openModal(item)}
-                  className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center transition-colors"
+                  className="text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base inline-flex items-center transition-colors"
                 >
                   View Details →
                 </button>
