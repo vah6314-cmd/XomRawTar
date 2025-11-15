@@ -87,19 +87,19 @@ export default function Navbar() {
 
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-200">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="px-3 sm:px-4 pt-3 pb-4 space-y-2">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.target)}
-                className="text-gray-700 hover:text-blue-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200"
+                className="text-gray-700 hover:text-blue-600 hover:bg-gray-50 block px-4 py-3 rounded-md text-base font-medium w-full text-left transition-colors duration-200"
               >
                 {item.name}
               </button>
             ))}
             <button
               onClick={() => scrollToSection('contact')}
-              className="bg-blue-600 text-white block px-3 py-2 rounded-md text-base font-semibold hover:bg-blue-700 transition-colors duration-200 w-full text-left"
+              className="bg-blue-600 text-white block px-4 py-3 rounded-md text-base font-semibold hover:bg-blue-700 transition-colors duration-200 w-full text-left mt-3"
             >
               Get Free Quote
             </button>
