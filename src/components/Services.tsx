@@ -72,7 +72,7 @@ const servicePackages: ServicePackage[] = [
 export default function Services() {
   const [hoveredPackage, setHoveredPackage] = useState<string | null>(null);
 
-  const scrollToContact = (packageId: string) => {
+  const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
