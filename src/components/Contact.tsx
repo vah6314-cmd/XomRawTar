@@ -20,6 +20,16 @@ export default function Contact() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errors, setErrors] = useState<Partial<FormData>>({});
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+
+    // Clear error when user starts typing
+    if (errors[name as keyof FormData]) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
+    }
+  };
+
   const validateForm = (): boolean => {
     const newErrors: Partial<FormData> = {};
 
@@ -45,15 +55,6 @@ export default function Contact() {
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
-    if (errors[name as keyof FormData]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -232,96 +233,96 @@ ${formData.fullName}`);
           </div>
 
           {/* Contact Information */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* Email Card */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+              <div className="flex items-center mb-3 sm:mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 012.828 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h4 className="text-lg font-semibold text-gray-900">Email Us</h4>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">Email Us</h4>
               </div>
               <a
                 href="mailto:raylinewebdev@gmail.com"
-                className="text-blue-600 hover:text-blue-700 font-medium"
+                className="text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base"
               >
                 raylinewebdev@gmail.com
               </a>
-              <p className="text-sm text-gray-600 mt-2">We respond to all emails within 24 hours</p>
+              <p className="text-xs sm:text-sm text-gray-600 mt-2">We respond to all emails within 24 hours</p>
             </div>
 
             {/* WhatsApp Card */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                  <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.486"/>
+            <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+              <div className="flex items-center mb-3 sm:mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.442.456-.597.872-1.82.144-.46.348-1.01.419-1.648.149-.386.591-.425 1.689-.133.237.885-.196 1.692.232.298.062.357-.038.376-.7.178.252-.862-.233-1.59.139-1.446-.62-.245-.632-.18-.44-.025-.662.095-1.059.218-1.57.105-.28-.088-.309-.06-.518-.017-.822.111-.234.02-.054-1.04-.109-.37-.105-.357.172-.251.396-.046.176.114-.025-.051-.03-.015-1.094-.151-.34-.479-.291-.066.178.068-.209-.018-.438-.13-.498-.057-.268.018-.943.268-.994-.067-.035-.098.11-.063.099-.014.149-.038.222.053.412.08.933-.111-.267.086-.747.44.673.314-1.854.054-.5.1.366-.018.884-.233.428.06-.896.447-.894.49.404.332-.302.044-.45-.025-.631-.155-.874-.186.592-.232-.545-.015-.949.104-.472.069-.67.024-.41-.026-.9-.016-.297-.017-.185-.051-.386-.023-.941.13-.563.074-.253.154-1.07.015-.144.048-1.11-.011-.403-.13-.496-.05-.005-.437-.119-.191-.17-.777-.003-.309.125-.398-.355-.467.04-.254.03-.288.057-.19.097-.098-.246-.08-.948.497-.983.095-.374-.121-.121-.067-.064-.125-.119-.192-.087-.39-.003-.006-.043-.058-.079-.068-.029-.12-.037-.08-.026-.137.09-.245-.059-.372-.09-.342-.048-.563-.033-.276-.12-.262-.077-.475-.053-.932-.032-.476-.036-.621-.053-.274-.08-.356.05-.364-.153-.57-.102-.752-.239-1.6.642-1.925z"/>
                   </svg>
                 </div>
-                <h4 className="text-lg font-semibold text-gray-900">Chat on WhatsApp</h4>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">Chat on WhatsApp</h4>
               </div>
-              <p className="text-gray-600 mb-4">Get instant answers and quick project discussions</p>
+              <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">Get instant answers and quick project discussions</p>
               <a
                 href={`https://wa.me/${whatsappNumber.replace('+', '')}?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-200"
+                className="inline-flex items-center bg-green-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-200 text-sm sm:text-base"
               >
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.486"/>
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.442.456-.597.872-1.82.144-.46.348-1.01.419-1.648.149-.386.591-.425 1.689-.133.237.885-.196 1.692.232.298.062.357-.038.376-.7.178.252-.862-.233-1.59.139-1.446-.62-.245-.632-.18-.44-.025-.662.095-1.059.218-1.57.105-.28-.088-.309-.06-.518-.017-.822.111-.234.02-.054-1.04-.109-.37-.105-.357.172-.251.396-.046.176.114-.025-.051-.03-.015-1.094-.151-.34-.479-.291-.066.178.068-.209-.018-.438-.13-.498-.057-.268.018-.943.268-.994-.067-.035-.098.11-.063.099-.014.149-.038.222.053.412.08.933-.111-.267.086-.747.44.673.314-1.854.054-.5.1.366-.018.884-.233.428.06-.896.447-.894.49.404.332-.302.044-.45-.025-.631-.155-.874-.186.592-.232-.545-.015-.949.104-.472.069-.67.024-.41-.026-.9-.016-.297-.017-.185-.051-.386-.023-.941.13-.563.074-.253.154-1.07.015-.144.048-1.11-.011-.403-.13-.496-.05-.005-.437-.119-.191-.17-.777-.003-.309.125-.398-.355-.467.04-.254.03-.288.057-.19.097-.098-.246-.08-.948.497-.983.095-.374-.121-.121-.067-.064-.125-.119-.192-.087-.39-.003-.006-.043-.058-.079-.068-.029-.12-.037-.08-.026-.137.09-.245-.059-.372-.09-.342-.048-.563-.033-.276-.12-.262-.077-.475-.053-.932-.032-.476-.036-.621-.053-.274-.08-.356.05-.364-.153-.57-.102-.752-.239-1.6.642-1.925z"/>
                 </svg>
                 Start Chat
               </a>
-              <p className="text-sm text-gray-600 mt-3">Phone: {whatsappNumber}</p>
+              <p className="text-xs sm:text-sm text-gray-600 mt-2 sm:mt-3">Phone: {whatsappNumber}</p>
             </div>
 
             {/* Why Choose Us Card */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+              <div className="flex items-center mb-3 sm:mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4 4 2z" />
                   </svg>
                 </div>
-                <h4 className="text-lg font-semibold text-gray-900">Why Choose Us?</h4>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">Why Choose Us?</h4>
               </div>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 <li className="flex items-start">
-                  <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-700 text-sm">Affordable pricing for small businesses</span>
+                  <span className="text-gray-700 text-sm sm:text-base">Affordable pricing for small businesses</span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-700 text-sm">Fast delivery (1-4 weeks)</span>
+                  <span className="text-gray-700 text-sm sm:text-base">Fast delivery (1-4 weeks)</span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-700 text-sm">Mobile-responsive designs</span>
+                  <span className="text-gray-700 text-sm sm:text-base">Mobile-responsive designs</span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-700 text-sm">Ongoing support included</span>
+                  <span className="text-gray-700 text-sm sm:text-base">Ongoing support included</span>
                 </li>
               </ul>
             </div>
 
             {/* Response Time Badge */}
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
+            <div className="bg-green-50 border border-green-200 rounded-lg p-3 sm:p-4 text-center">
               <div className="inline-flex items-center">
-                <svg className="w-5 h-5 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span className="text-green-800 font-semibold">Usually responds within 24 hours</span>
+                <span className="text-green-800 font-semibold text-sm sm:text-base">Usually responds within 24 hours</span>
               </div>
             </div>
           </div>
