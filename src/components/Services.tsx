@@ -172,7 +172,7 @@ export default function Services() {
 
                 {/* CTA Button */}
                 <button
-                  onClick={() => scrollToContact(pkg.id)}
+                  onClick={() => scrollToContact()}
                   className={`w-full py-3 px-6 rounded-full font-semibold transition-all duration-200 ${
                     pkg.popular
                       ? 'bg-blue-600 text-white hover:bg-blue-700'
